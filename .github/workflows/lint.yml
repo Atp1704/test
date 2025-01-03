@@ -2,9 +2,9 @@ name: Lint Codebase
 
 on:
   push:
-    branches: [ main ]
+    branches: [master]
   pull_request:
-    branches: [ main ]
+    branches: [master]
     paths:
       - 'frontend/**'
       - 'backend/**'
@@ -18,37 +18,37 @@ jobs:
   lint:
     name: Run Linters
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'npm'
-          
+
       - name: Install Frontend Dependencies
         working-directory: ./frontend
         run: npm ci
-        
+
       - name: Install Backend Dependencies
         working-directory: ./backend
         run: npm ci
-        
+
       - name: Lint Frontend
         working-directory: ./frontend
         run: |
           npx eslint "**/*.{js,jsx,ts,tsx,json}" --max-warnings=0
           npx prettier --check "**/*.{js,jsx,ts,tsx,json,css,scss,md}"
-          
+
       - name: Lint Backend
         working-directory: ./backend
         run: |
           npx eslint "**/*.{js,ts,json}" --max-warnings=0
           npx prettier --check "**/*.{js,ts,json,md}"
-        
+
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
