@@ -1,9 +1,9 @@
 name: Lint Codebase
 
 on:
-  push: # Run on push to any branch
+  push:
     branches:
-      - '**'
+      - '*'
     paths:
       - 'frontend/**'
       - 'backend/**'
@@ -12,7 +12,6 @@ on:
       - '**/.eslintrc*'
       - '**/.prettierrc*'
       - '**/*.{js,jsx,ts,tsx,json}'
-
 jobs:
   lint:
     name: Run Linters
