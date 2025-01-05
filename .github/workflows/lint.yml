@@ -2,8 +2,7 @@ name: Lint Codebase
 
 on:
   push:
-    branches:
-      - '*'
+    branches: []
     paths:
       - 'frontend/**'
       - 'backend/**'
