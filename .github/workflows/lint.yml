@@ -1,10 +1,9 @@
 name: Lint Codebase
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+  push: # Run on push to any branch
+    branches:
+      - '**'
     paths:
       - 'frontend/**'
       - 'backend/**'
@@ -43,13 +42,13 @@ jobs:
       - name: Lint Frontend
         working-directory: ./frontend
         run: |
-          npx eslint "**/*.{js,jsx,ts,tsx,json}" --max-warnings=0
+          npx eslint "**/*.{js,jsx,ts,tsx}" --max-warnings=0
           npx prettier --check "**/*.{js,jsx,ts,tsx,json,css,scss,md}"
 
       - name: Lint Backend
         working-directory: ./backend
         run: |
-          npx eslint "**/*.{js,ts,json}" --max-warnings=0
+          npx eslint "**/*.{js,ts}" --max-warnings=0
           npx prettier --check "**/*.{js,ts,json,md}"
 
       - name: Cache Dependencies
