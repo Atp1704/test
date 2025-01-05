@@ -9,7 +9,7 @@ function App() {
         <p>
           Edit
           <code>src/App.js</code>
-          and save to reloads.
+          and save to trigger.
         </p>
         <a
           className="App-link"
