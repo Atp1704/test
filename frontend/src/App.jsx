@@ -18,7 +18,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn 
-          React smjhe.
+          React smjhe. vi.
         </a>
       </header>
     </div>
